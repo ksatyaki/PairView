@@ -66,7 +66,7 @@ private:
 class SrnpCore
 {
 protected:
-    void callback (const srnp::Pair& pair);
+    void callback (const srnp::Pair::ConstPtr& pair);
     boost::mutex map_mutex;
 public:
     virtual ~SrnpCore();

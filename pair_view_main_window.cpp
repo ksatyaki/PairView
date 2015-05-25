@@ -56,7 +56,7 @@ void PairViewMainWindow::displayPair(QTreeWidgetItem* item, int column)
 {
     srnp::Pair pairToShow = SrnpCore::all_pairs[item->text(0)];
     ui->keyDisplay->setText(QString::fromStdString(pairToShow.getKey()));
-    ui->valueDisplay->setText(QString::fromStdString(pairToShow.getKey()));
+    ui->valueDisplay->setText(QString::fromStdString(pairToShow.getValue()));
     ui->expiryTimeDisplay->setText(QString::fromStdString(boost::posix_time::to_simple_string(pairToShow.getExpiryTime())));
     ui->writeTimeDisplay->setText(QString::fromStdString(boost::posix_time::to_simple_string(pairToShow.getWriteTime())));
 }
@@ -123,16 +123,16 @@ SrnpCore::~SrnpCore()
 }
 
 
-void SrnpCore::callback (const srnp::Pair& pair)
+void SrnpCore::callback (const srnp::Pair::ConstPtr& pair)
 {
     pvmw->signalPairReceived();
 
     //map_mutex.lock();
-    all_pairs[QString::fromStdString(pair.getKey())] = pair;
+    all_pairs[QString::fromStdString(pair->getKey())] = *pair;
     //map_mutex.unlock();
-    QTreeWidgetItem* item2Update = pvmw->treeWidget_GetItemWithKey(QString::fromStdString(pair.getKey()));
+    QTreeWidgetItem* item2Update = pvmw->treeWidget_GetItemWithKey(QString::fromStdString(pair->getKey()));
     if(item2Update != NULL)
-        pvmw->treeWidget_UpdateItem(item2Update, QString::fromStdString(pair.getValue())) ;
+        pvmw->treeWidget_UpdateItem(item2Update, QString::fromStdString(pair->getValue())) ;
     else
-        pvmw->treeWidget_AddRoot(QString::fromStdString(pair.getKey()), QString::fromStdString(pair.getValue()));
+        pvmw->treeWidget_AddRoot(QString::fromStdString(pair->getKey()), QString::fromStdString(pair->getValue()));
 }
