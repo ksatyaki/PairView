@@ -114,7 +114,7 @@ SrnpCore::SrnpCore (PairViewMainWindow *window, int argn, char* args[], char* en
     srnp::initialize(argn, args, env);
 
     srnp::registerSubscription("*");
-    srnp::registerCallback("*", boost::bind(&SrnpCore::callback, this, _1));
+    srnp::registerCallback(-1, "*", boost::bind(&SrnpCore::callback, this, _1));
 }
 
 SrnpCore::~SrnpCore()
