@@ -37,8 +37,19 @@
      </rect>
     </property>
     <property name="indentation">
-     <number>12</number>
+     <number>15</number>
     </property>
+    <property name="uniformRowHeights">
+     <bool>true</bool>
+    </property>
+    <property name="sortingEnabled">
+     <bool>true</bool>
+    </property>
+    <column>
+     <property name="text">
+      <string>Owner</string>
+     </property>
+    </column>
     <column>
      <property name="text">
       <string>Key</string>
@@ -63,116 +74,139 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="QWidget" name="formLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>350</x>
-      <y>300</y>
-      <width>481</width>
-      <height>111</height>
-     </rect>
-    </property>
-    <layout class="QFormLayout" name="postPairForm">
-     <property name="fieldGrowthPolicy">
-      <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
-     </property>
-     <item row="1" column="0">
-      <widget class="QLabel" name="postPairKeyLabel">
-       <property name="font">
-        <font>
-         <pointsize>11</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Key</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QTextEdit" name="postPairKey"/>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="postPairValueLabel">
-       <property name="font">
-        <font>
-         <pointsize>11</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Value</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QTextEdit" name="postPairValue"/>
-     </item>
-     <item row="3" column="1">
-      <widget class="QPushButton" name="postPairButton">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="text">
-        <string>Post Pair</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
    <widget class="QWidget" name="formLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>19</y>
-      <width>481</width>
-      <height>161</height>
+      <x>360</x>
+      <y>10</y>
+      <width>471</width>
+      <height>201</height>
      </rect>
     </property>
     <layout class="QFormLayout" name="displayLayout">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetFixedSize</enum>
+     </property>
      <property name="fieldGrowthPolicy">
       <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
      </property>
-     <item row="0" column="0">
+     <property name="verticalSpacing">
+      <number>8</number>
+     </property>
+     <item row="1" column="0">
+      <widget class="QLabel" name="ownerDisplayLabel">
+       <property name="text">
+        <string>Owner</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
       <widget class="QLabel" name="keyDisplayLabel">
        <property name="text">
         <string>Key</string>
        </property>
       </widget>
      </item>
-     <item row="1" column="0">
+     <item row="3" column="0">
       <widget class="QLabel" name="valueDisplayLabel">
        <property name="text">
         <string>Value</string>
        </property>
       </widget>
      </item>
-     <item row="2" column="0">
+     <item row="4" column="0">
       <widget class="QLabel" name="writeTimeDisplayLabel">
        <property name="text">
         <string>Write Time</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="1">
-      <widget class="QTextBrowser" name="keyDisplay"/>
-     </item>
-     <item row="1" column="1">
-      <widget class="QTextBrowser" name="valueDisplay"/>
-     </item>
-     <item row="2" column="1">
-      <widget class="QTextBrowser" name="writeTimeDisplay"/>
-     </item>
-     <item row="3" column="0">
+     <item row="5" column="0">
       <widget class="QLabel" name="expiryTimeDisplayLabel">
        <property name="text">
         <string>Expiry Time</string>
        </property>
       </widget>
      </item>
+     <item row="1" column="1">
+      <widget class="QTextBrowser" name="ownerDisplay">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>30</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QTextBrowser" name="expiryTimeDisplay">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>30</height>
+        </size>
+       </property>
+      </widget>
+     </item>
      <item row="3" column="1">
-      <widget class="QTextBrowser" name="expiryTimeDisplay"/>
+      <widget class="QTextBrowser" name="valueDisplay">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>30</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QTextBrowser" name="keyDisplay">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>30</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QTextBrowser" name="writeTimeDisplay">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>30</height>
+        </size>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
@@ -188,6 +222,121 @@
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
+   </widget>
+   <widget class="QWidget" name="formLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>240</y>
+      <width>451</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <layout class="QFormLayout" name="postPairForm">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetFixedSize</enum>
+     </property>
+     <property name="fieldGrowthPolicy">
+      <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+     </property>
+     <item row="2" column="0">
+      <widget class="QLabel" name="postPairKeyLabel">
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Key</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="postPairValueLabel">
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Value</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QPushButton" name="postPairButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Post Pair</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="postPairOwnerLabel">
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Onwer</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QTextEdit" name="postPairKey">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>30</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QTextEdit" name="postPairValue">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>30</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QTextEdit" name="postPairOwner">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>600</width>
+         <height>30</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QToolBar" name="mainToolBar">

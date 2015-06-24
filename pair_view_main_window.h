@@ -40,17 +40,21 @@ class PairViewMainWindow : public QMainWindow
 protected slots:
     void postPair();
     void displayPair(QTreeWidgetItem* item, int column);
+    void showPairIfClicked(QTreeWidgetItem* item2Show);
 
 signals:
-    void pairReceived();
+    void pairReceived(QTreeWidgetItem* item2Update);
 
 public:
-    inline void signalPairReceived() { emit pairReceived(); }
 
-    void treeWidget_AddRoot(const QString& Key, const QString& Value);
-    void treeWidget_AddChild(QTreeWidgetItem* parent, const QString& Key, const QString& Value);
+    friend class SrnpCore;
+
+    QTreeWidgetItem* treeWidget_AddComponentRoot(const QString& Owner, const QString& componentName);
+    QTreeWidgetItem* treeWidget_AddRoot(const QString& Key, const QString& Value, QTreeWidgetItem* ownerGroup);
+    QTreeWidgetItem* treeWidget_AddChild(QTreeWidgetItem* parent, const QString& Key, const QString& Value);
     void treeWidget_UpdateItem(QTreeWidgetItem* itemToUpdate, const QString& value);
-    QTreeWidgetItem* treeWidget_GetItemWithKey (const QString& itemKey);
+    QTreeWidgetItem* treeWidget_GetItemWithKey (const QString& itemKey, QTreeWidgetItem* ownerGroup);
+    QTreeWidgetItem* treeWidget_GetItemSection(const int& owner);
 
     explicit PairViewMainWindow(QWidget *parent, int argn, char *args[], char* env[]);
     ~PairViewMainWindow();
@@ -68,10 +72,12 @@ class SrnpCore
 protected:
     void callback (const srnp::Pair::ConstPtr& pair);
     boost::mutex map_mutex;
+    int owner_;
 public:
+    inline int owner() { return owner_; }
     virtual ~SrnpCore();
     SrnpCore(PairViewMainWindow *window, int argn, char* args[], char* env[]);
-    static QMap <QString, srnp::Pair> all_pairs;
+    static QMap <QPair <int, QString> , srnp::Pair> all_pairs;
 private:
     PairViewMainWindow* pvmw;
 };
