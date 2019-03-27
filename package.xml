@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package>
+  <name>pair_view</name>
+  <version>0.1.0</version>
+  <description>Simply Re-written New PEIS Package - PairView</description>
+
+  <maintainer email="chitt@live.in">Chittaranjan Srinivas Swaminathan</maintainer>
+  <license>GPLv3</license>
+
+  <buildtool_depend>cmake</buildtool_depend>
+
+  <build_depend>srnp</build_depend>
+  <run_depend>srnp</run_depend>
+  <export>
+  </export>
+</package>
